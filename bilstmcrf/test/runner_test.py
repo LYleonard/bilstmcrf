@@ -2,8 +2,8 @@ import os
 
 import tensorflow as tf
 
-from . import utils
-from .runner import Runner
+from bilstmcrf import utils
+from bilstmcrf.runner import Runner
 
 tf.logging.set_verbosity(tf.logging.INFO)
 
@@ -13,7 +13,7 @@ class RunnerTest(tf.test.TestCase):
     @staticmethod
     def _buildParams():
         testdata_dir = os.path.abspath(
-            os.path.join(os.path.dirname(__file__), "../testdata"))
+            os.path.join(os.path.dirname(__file__), "../../testdata"))
         params = {
             "model_dir": os.path.join(testdata_dir, "model"),
             "train_src_file": os.path.join(testdata_dir, "feature.txt"),
@@ -62,7 +62,7 @@ class RunnerTest(tf.test.TestCase):
         r = Runner(self._buildParams())
         predictions = r.predict()
         testdata_dir = os.path.abspath(
-            os.path.join(os.path.dirname(__file__), "../testdata"))
+            os.path.join(os.path.dirname(__file__), "../../testdata"))
         tags_file = os.path.join(testdata_dir, "tags_output")
         with open(tags_file, mode="wt", encoding="utf8", buffering=8192) as f:
             for i, p in enumerate(predictions):

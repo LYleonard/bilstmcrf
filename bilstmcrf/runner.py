@@ -150,7 +150,7 @@ if __name__ == "__main__":
     tf.logging.set_verbosity(tf.logging.INFO)
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--params_file", type=str, default="hparams.json",
+    parser.add_argument("--params_file", type=str, default="config/example_params.json",
                         required=True,
                         help="The params configuration in JSON format.")
     parser.add_argument("--mode", type=str, default="train_and_eval",

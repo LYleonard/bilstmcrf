@@ -53,7 +53,7 @@ class BaseModel(AbstractModel):
 
         logits, predict_ids = self.decode(output, nwords, params)
 
-        # TODO(luozhouyang) Add hooks
+        # TODO Add hooks
         if mode == tf.estimator.ModeKeys.PREDICT:
             predictions = self.build_predictions(predict_ids, params)
             prediction_hooks = []
@@ -139,7 +139,7 @@ class BaseModel(AbstractModel):
                 learning_rate=params.get('learning_rate', 1.0))
             return opt.minimize(loss, global_step=global_step)
 
-        # TODO(luozhouyang) decay lr
+        # TODO decay lr
         sgd = tf.train.GradientDescentOptimizer(
             learning_rate=params.get('learning_rate', 1.0))
         return sgd.minimize(loss, global_step=global_step)

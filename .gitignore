@@ -8,3 +8,4 @@ __pycache__/
 *.so
 
 testdata/model
+testdata/tags_output

@@ -2,7 +2,7 @@ import os
 
 import tensorflow as tf
 
-from . import utils
+from bilstmcrf import utils
 
 
 class UtilsTest(tf.test.TestCase):
